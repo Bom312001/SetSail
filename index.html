@@ -16,6 +16,7 @@
 </head>
 <body>
     <div class="wrapper" id="scroll-top">
+
         <!-- Header Contact -->
         <div class="header-contact">
             <div class="grid wide header-contact--flex">
@@ -1376,6 +1377,34 @@
                 </div>
             </div>
         </div>
+
+        <div class="scroll-back-top">
+            <button id="back-to-top">Top</button>
+        </div>
+        
+        <script>
+            const btnScrollTop = document.getElementsByClassName('scroll-back-top')
+            const btnBackTop = document.getElementById('back-to-top')
+
+            //Khi người dùng cuộn chuột thì gọi hàm scrollFunction
+            window.onscroll = function() {scrollFunction()}
+            // khai báo hàm scrollFunction
+            function scrollFunction() {
+                // Kiểm tra vị trí hiện tại của con trỏ so với nội dung trang (nếu lớn hơn 2000px thì hiện)
+                if(document.body.scrollTop > 2000 || document.documentElement.scrollTop > 2000) {
+                    btnBackTop.style.display = 'block'
+                } else {
+                    btnBackTop.style.display = 'none'
+                }
+            }
+
+            //gán sự kiện click cho button
+            btnBackTop.addEventListener("click", function(){
+                //Nếu button được click thì nhảy về đầu trang
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            });
+        </script>
     </div>
 </body>
 </html>
